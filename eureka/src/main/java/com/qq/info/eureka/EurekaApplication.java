@@ -1,4 +1,4 @@
-package com.qq.eureka;
+package com.qq.info.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

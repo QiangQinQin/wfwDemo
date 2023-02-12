@@ -1,10 +1,10 @@
-package com.qq.order;
+package com.qq.info.eureka;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OrderApplicationTests {
+class EurekaApplicationTests {
 
     @Test
     void contextLoads() {

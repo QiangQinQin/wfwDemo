@@ -1,4 +1,4 @@
-package com.qq;
+package com.qq.info;
 
 public class GoodsInfo {
 

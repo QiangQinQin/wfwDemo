@@ -1,10 +1,10 @@
-package com.qq.goodsapi;
+package com.qq.info.goods;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GoodsApiApplicationTests {
+class GoodsApplicationTests {
 
     @Test
     void contextLoads() {

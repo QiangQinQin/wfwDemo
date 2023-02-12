@@ -25,11 +25,11 @@ public class WfwOrderContoller {
     order-api是服务的调用者、使用者
      */
     @RequestMapping("/add")
-    public OrderInfo addOrder(@RequestBody OrderInfo orderInfo){
-        System.out.println("order" + orderInfo);
+//  public OrderInfo addOrder( OrderInfo orderInfo){   http://127.0.0.1:8000/order/add?number=111
+    public OrderInfo addOrder( @RequestBody  OrderInfo orderInfo){  //被调用方 加 requestbody注解 是为了 order-api调order时  能把 参数传过来。
+        System.out.println("order" + orderInfo);  // 插入前是没有id的
         int order = orderService.createOrder(orderInfo);
-
-        orderInfo.setId(order);
+        orderInfo.setId(order); // 插入后才生成id，并返回回去
         return orderInfo;
     }
 

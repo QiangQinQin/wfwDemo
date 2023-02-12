@@ -14,7 +14,7 @@ public class OrderController {
     @Autowired
     OrderFeignClient orderFeignClient; //我们一个接口有多个实现类了；导致我们不知道
 
-//    http://127.0.0.1:8200/order_api/addOrder
+//    http://127.0.0.1:8200/order_api/addOrder?number=111
     @RequestMapping("addOrder")
     public String addOrder(String number){
 
@@ -22,7 +22,7 @@ public class OrderController {
         OrderInfo orderInfo = new OrderInfo();
         orderInfo.setNumber(number);
 
-        OrderInfo result = orderFeignClient.add(orderInfo);
+        OrderInfo result = orderFeignClient.add(orderInfo); // 远程调用order模块的接口
         System.out.println(result);
         return null == result ? "error" : String.valueOf(result.getId());
     }

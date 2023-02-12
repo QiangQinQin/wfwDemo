@@ -1,0 +1,16 @@
+# 没配端口号， 默认是8761， ： 后一定要有空格
+server:
+  port: 7000
+
+spring:
+  application:
+    name: qq-eureka
+
+eureka:
+  instance:
+    hostname: qq-eureka
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7000/eureka     #因为修改了端口号，所以要设置网址
+    register-with-eureka: false   # 是否将当前项目 注册到服务中心。（因为目前是单机项目，当前项目就作为注册中心，所以是false，不用自己去注册自己。 否则就是 自己把自己提起来）
+    fetch-registry: false  # 表示  当前项目 是否要 从注册中心 获取 注册的服务。 false 即 自己不要去找自己

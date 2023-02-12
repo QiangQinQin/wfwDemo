@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <modules>
+        <module>../commons</module>
+        <module>../order-api</module>
+
+    </modules>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.7.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.qq</groupId>
+    <artifactId>dependency</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>dependency</name>
+    <description>dependency</description>
+
+<!--    统一版本号-->
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
+        <descrioption>Demo project fort Spring Boot</descrioption>
+    </properties>
+
+<!--  代表当前这个模板 被别人去依赖
+https://blog.csdn.net/qq_31960623/article/details/123507486
+pom的意思是项目里没有java代码，也不执行任何代码，只是为了聚合工程或传递依赖用的。所以并不会寻找配置文件，若想配置文件生效，改为jar
+-->
+    <packaging>pom</packaging>
+
+    <dependencies>
+<!-- 解决先启动eureka,后启动order时，order报
+2023-02-12 17:44:28.486  INFO 193008  [extShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application QQ-ORDER with eureka with status DOWN
+2023-02-12 17:44:28.486 ERROR 193008 [extShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1676195068486, current=DOWN, previous=UP]-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

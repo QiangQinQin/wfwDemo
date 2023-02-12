@@ -1,0 +1,24 @@
+server:
+  port: 8200
+
+spring:
+  application:
+    name: qq-order-api
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7000/eureka
+
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000

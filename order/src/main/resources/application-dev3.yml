@@ -1,6 +1,5 @@
-
 server:
-  port: 8000
+  port: 8003
 
 spring:
   application:
@@ -14,4 +13,4 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:7000/eureka   # 作为服务注册的客户端，向 eureka模块 寻找注册信息
+      defaultZone: http://127.0.0.1:7000/eureka

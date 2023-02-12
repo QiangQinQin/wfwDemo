@@ -1,6 +1,7 @@
-
+# name一样，但port不同，模拟集群
+#进edit configurations，新增启动项目，配置program arguments参数:  --spring.profiles.active=dev1
 server:
-  port: 8000
+  port: 8001
 
 spring:
   application:
@@ -14,4 +15,4 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:7000/eureka   # 作为服务注册的客户端，向 eureka模块 寻找注册信息
+      defaultZone: http://127.0.0.1:7000/eureka

@@ -1,0 +1,15 @@
+#应用名
+spring:
+  application:
+    name: qq-hystrix
+
+# chrome浏览器用666会有问题
+server:
+  port: 9999
+
+# 要监控的列表
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "localhost"
+
+

@@ -10,7 +10,7 @@ server:
 zuul:
   routes:
     order-api:      # 路由规则叫 order-api， 遇到 /oapi/** 地址 就转发到 qq-order-api这个微服务    路由方式： 1.根据服务名称进行转发  2.根据 URL进行映射（用的少，因为URL太多了）
-      path: /oapi/**   # 匹配 127.0.0.1：8080/oapi/**/**/** 等多层级的路径    /oapi/* 只能匹配 127.0.0.1：8080/oapi/add  或  127.0.0.1：8080/oapi/delete等一级的   /oapi/？只匹配单个字符如127.0.0.1：8080/oapi/a
+      path: /oapi/**   # 针对哪一个要被转发的服务，  如/oapi/** 可 /oapi/**/**/** 等多层级的路径    /oapi/* 只能匹配 127.0.0.1：8080/oapi/add  或  127.0.0.1：8080/oapi/delete等一级的   /oapi/？只匹配单个字符如127.0.0.1：8080/oapi/a
       serviceId: qq-order-api  # 跟要转发的地方，order-api模块里配置的名称一样
 # 之前是通过 127.0.0.1:8200/order_api/addOrder?number=666来访问  现在 通过网关转发来访问微服务： 127.0.0.1:8080/oapi/order_api/addOrder?number=666
 
